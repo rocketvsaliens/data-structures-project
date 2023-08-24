@@ -31,4 +31,6 @@ class Stack:
         Метод для удаления элемента с вершины стека и его возвращения
         :return: данные удаленного элемента
         """
-        pass
+        popped = self.top
+        self.top = self.top.next_node
+        return popped.data

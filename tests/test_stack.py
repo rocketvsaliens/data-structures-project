@@ -1,6 +1,8 @@
 import pytest
 from src import stack
 
+ATTR_ERROR_MSG = "'NoneType' object has no attribute 'data'"
+
 
 def test_node_init():
     data = 5
@@ -33,5 +35,13 @@ def test_push(test_stack):
     assert test_stack.top.next_node.next_node.data == 'data1'
     assert test_stack.top.next_node.next_node.next_node is None
     with pytest.raises(AttributeError):
-        msg = "'NoneType' object has no attribute 'data'"
-        assert test_stack.top.next_node.next_node.next_node.data == msg
+        assert test_stack.top.next_node.next_node.next_node.data == ATTR_ERROR_MSG
+
+
+def test_pop(test_stack):
+    assert test_stack.pop() == 'data3'
+    assert test_stack.pop() == 'data2'
+    assert test_stack.pop() == 'data1'
+    assert test_stack.top is None
+    with pytest.raises(AttributeError):
+        assert test_stack.pop() == ATTR_ERROR_MSG

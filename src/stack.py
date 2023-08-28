@@ -17,6 +17,15 @@ class Stack:
         """Конструктор класса Stack"""
         self.top = None
 
+    def __str__(self):
+        """Строковое представление стека"""
+        fullstack = ''
+        current = self.top
+        while current:
+            fullstack += str(current.data) + '\n'  # переводим в str на случай, если кто-то добавит циферьки
+            current = current.next_node
+        return fullstack.strip()  # удаляем последний перенос строки
+
     def push(self, data):
         """
         Метод для добавления элемента на вершину стека

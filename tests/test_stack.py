@@ -45,3 +45,7 @@ def test_pop(test_stack):
     assert test_stack.top is None
     with pytest.raises(AttributeError):
         assert test_stack.pop() == ATTR_ERROR_MSG
+
+
+def test__str__(test_stack):
+    assert str(test_stack) == "data3\ndata2\ndata1"

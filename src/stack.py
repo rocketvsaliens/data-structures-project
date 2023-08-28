@@ -22,9 +22,9 @@ class Stack:
         fullstack = ''
         current = self.top
         while current:
-            fullstack += str(current.data) + '\n'
+            fullstack += str(current.data) + '\n'  # переводим в str на случай, если кто-то добавит циферьки
             current = current.next_node
-        return fullstack
+        return fullstack.strip()  # удаляем последний перенос строки
 
     def push(self, data):
         """

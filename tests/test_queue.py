@@ -41,3 +41,10 @@ def test_enqueue(test_queue):
     assert test_queue.tail.next_node is None
     with pytest.raises(AttributeError):
         assert test_queue.tail.next_node.data == ATTR_ERROR_MSG
+
+
+def test_dequeue(test_queue):
+    assert test_queue.dequeue() == 'data1'
+    assert test_queue.dequeue() == 'data2'
+    assert test_queue.dequeue() == 'data3'
+    assert test_queue.dequeue() is None
